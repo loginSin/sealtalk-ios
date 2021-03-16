@@ -37,5 +37,9 @@ jobs:
           sh github_action_build.sh
           echo "github_action_build.sh end"
           echo Add other actions to build,
-          echo "job status ${{job.status}}"
           echo test, and deploy your project.
+    
+      - name: Check job status
+        run: |
+          echo "job status ${{job.status}}"
+          echo "${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}"
